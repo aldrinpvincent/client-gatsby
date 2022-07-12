@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useConfig } from "gatsby-theme-advanced";
 
@@ -14,6 +14,21 @@ import { AdvancedLogo } from "../../icons";
 
 const Navigation = (): JSX.Element => {
   const config = useConfig();
+
+  useEffect(() => {
+
+    const queryString = window.location.search;
+    // console.log(queryString);
+    const urlParams = new URLSearchParams(queryString);
+    const addEditor = urlParams.get("moe-editor")
+
+    if (addEditor) {
+      const script = document.createElement('script');
+      script.src = "http://localhost:3000/test.js";
+      (document.head || document.documentElement).appendChild(script);
+    }
+
+  }, []);
 
   return (
     <>
