@@ -18,14 +18,16 @@ const Navigation = (): JSX.Element => {
   useEffect(() => {
 
     const queryString = window.location.search;
-    // console.log(queryString);
+    console.log(queryString);
     const urlParams = new URLSearchParams(queryString);
     const addEditor = urlParams.get("moe-editor")
 
     if (addEditor) {
       const script = document.createElement('script');
-      script.src = "http://localhost:3000/test.js";
+      script.src = "https://web-editor-sand.vercel.app/assets/index.e7884c6b.js";
       (document.head || document.documentElement).appendChild(script);
+      // script.remove();
+
     }
 
   }, []);
